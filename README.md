@@ -7,6 +7,11 @@ CRUD With Mysql
 Post Array With Html Input Array
 Upload File
 
+Module
+Express -> npm install express
+Body-parser -> npm install body-parser
+Fetch -> npm install fetch
+
 Email
 nineroom.project@gmail.com
 phone
