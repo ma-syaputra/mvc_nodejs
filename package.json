@@ -12,6 +12,7 @@
   "author": "Muhamad Amirlulah Syaputra",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.16.4",
     "npm": "^6.4.1"
   }
 }
