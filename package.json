@@ -1,0 +1,17 @@
+{
+  "name": "putra",
+  "version": "1.0.0",
+  "description": "email:nineroom.project@gmail.com whatsapp only 082167395676",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mvc"
+  ],
+  "author": "Muhamad Amirlulah Syaputra",
+  "license": "ISC",
+  "dependencies": {
+    "npm": "^6.4.1"
+  }
+}
