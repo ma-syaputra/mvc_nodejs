@@ -12,6 +12,18 @@ Express -> npm install express
 Body-parser -> npm install body-parser
 Fetch -> npm install fetch
 
+
+
+if you use module api mysql & CRUD
+import file sql file in import db
+
+if you use module api REDIS 
+create 
+okz:tags:content:
+
+
+
+
 Email
 nineroom.project@gmail.com
 phone
