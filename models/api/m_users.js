@@ -15,7 +15,11 @@ module.exports = {
       },
      
       update_user: function(id,username,name) {
-        const data_user = connect_mysql_sync.query("UPDATE m_users SET nama="+"'"+name+"'"+"where id="+id);
+        const data_user = connect_mysql_sync.query("UPDATE m_users SET name="+"'"+name+"'"+","+"username="+"'"+username+"'"+"where id="+id);
+        return data_user;
+      },
+      insert_user: function(username,name) {
+        const data_user = connect_mysql_sync.query("INSERT INTO m_users (username,name)"+"VALUES"+"('"+username+"','"+name+"')");
         return data_user;
       },
       

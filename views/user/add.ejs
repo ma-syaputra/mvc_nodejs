@@ -1,0 +1,17 @@
+<% include ./../template/header %>
+<% include ./../template/nav %>
+<div class="container">
+        <h2><%= title %></h2>
+        <form action="/user/add_post" method="POST">
+          <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" class="form-control" id="username" placeholder="Enter Username" name="username" >
+          </div>
+          <div class="form-group">
+            <label for="nama">Name:</label>
+            <input type="text" class="form-control" id="nama" placeholder="Enter Name" name="name" >
+          </div>
+          <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+      </div>
+<% include ./../template/footer %>
