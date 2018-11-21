@@ -5,8 +5,5 @@ var MySql = require('sync-mysql');
           password: '',
           database: 'db_api'
         });
-        connection_sync.connect(function (err){
-            if(err) throw err;
-        });
         
         module.exports = connection_sync;

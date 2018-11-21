@@ -9,6 +9,16 @@ module.exports = {
         const userId = connect_mysql_sync.query("SELECT*FROM m_users where id="+id);
         return userId;
       },
+      listing_user: function(id) {
+        const data_user = connect_mysql_sync.query('SELECT * FROM m_users where id='+id);
+        return data_user;
+      },
+     
+      update_user: function(id,username,name) {
+        const data_user = connect_mysql_sync.query("UPDATE m_users SET nama="+"'"+name+"'"+"where id="+id);
+        return data_user;
+      },
+      
     get_user_async: function() {
         connect_mysql_async.query('SELECT*FROM m_users', function (error, results, fields) {
             if (error) throw error;

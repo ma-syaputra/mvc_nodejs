@@ -1,6 +1,7 @@
 var express = require('express')
-var api = require('./controllers/api')
-var redis_api = require('./controllers/redis_api')
+var api = require('./controllers/api/api')
+var redis_api = require('./controllers/api/redis_api')
+var crud = require('./controllers/crud/user')
 // var upload = require('./controllers/upload')
 
 var app = express();
@@ -11,6 +12,8 @@ app.set('view engine','ejs')
 app.use(express.static('./assets'))
 
 redis_api(app)
+crud(app)
+
 api(app)
 
 
