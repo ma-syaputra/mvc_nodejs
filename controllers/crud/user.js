@@ -9,6 +9,23 @@ module.exports = function(app){
         const allUser = connect_mysql.get_user();
         res.render('user/list',{users:allUser}) 
     }),
+    app.get('/user/pagination',function(req,res){
+        var connect_mysql = require('../../models/api/m_users');
+        const allUser = connect_mysql.get_user();
+        var perpage = 5
+        var countTotal = allUser.length
+        var totalpage = Math.ceil(countTotal/perpage)
+        var new_obj = {};
+        allUser.forEach((allUser, index) => {
+            console.log(allUser+',');
+          });
+        console.log(new_obj);
+        // allUser.forEach(function(element) {
+        //     console.log(id);
+        //   });
+        // console.log(allUser);
+        // res.render('user/list',{users:allUser}) 
+    }),
     app.get('/user/update/:id',function(req,res){
         var m_user = require('../../models/api/m_users'); 
         const id = req.params.id;

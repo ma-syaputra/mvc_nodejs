@@ -1,5 +1,4 @@
 module.exports = function(app){
-
     app.get('/api',function(req,res){
     var note = {'Get All Content Async':'http://localhost:3000/api/getUser_async',
                 'Get All Content Sync':'http://localhost:3000/api/getUser',
