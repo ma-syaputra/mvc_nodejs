@@ -8,7 +8,7 @@ module.exports = function(app){
     }),
     
 
-
+//Putra Create Collection
     app.get('/api/article/create_col',function(req,res){
         const MongoClient = require('mongodb').MongoClient;
       
@@ -26,6 +26,7 @@ module.exports = function(app){
         })
        
 }),
+//Putra Insert Collection
 app.get('/api/article/insert_col',function(req,res){
   const MongoClient = require('mongodb').MongoClient;
   const url = 'mongodb://localhost:27017';
@@ -41,6 +42,7 @@ app.get('/api/article/insert_col',function(req,res){
   });
  
 }),
+//Putra getall Collection
 app.get('/api/article/getall_col',function(req,res){
   const MongoClient = require('mongodb').MongoClient;
   const url = 'mongodb://localhost:27017';
@@ -54,16 +56,33 @@ app.get('/api/article/getall_col',function(req,res){
     });
   });
 }),
-app.get('/api/article/getName_col',function(req,res){
+// QUERY LIKE OPERATOR OR
+app.get('/api/article/getNameOr_col',function(req,res){
   const MongoClient = require('mongodb').MongoClient;
   const url = 'mongodb://localhost:27017';
   MongoClient.connect(url, function(err, db) {
     if (err) throw err;
     var dbo = db.db(db_mongo);
     var id = 7;
-    // var x = "/"+id+"/";
-    // console.log(x)
-    var query = { name: new RegExp(id, 'i') };
+    var reg = new RegExp(id, 'i')
+    var query = {$or:[{name:reg},{address:reg}]};
+    dbo.collection("customers").find(query).toArray(function(err, result) {
+      if (err) throw err;
+      console.log(result);
+      db.close();
+    });
+  });
+}),
+// QUERY LIKE OPERATOR AND
+app.get('/api/article/getNameAnd_col',function(req,res){
+  const MongoClient = require('mongodb').MongoClient;
+  const url = 'mongodb://localhost:27017';
+  MongoClient.connect(url, function(err, db) {
+    if (err) throw err;
+    var dbo = db.db(db_mongo);
+    var id = 7;
+    var reg = new RegExp(id, 'i')
+    var query = {name:reg,address:reg};
     dbo.collection("customers").find(query).toArray(function(err, result) {
       if (err) throw err;
       console.log(result);
