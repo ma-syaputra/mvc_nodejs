@@ -89,5 +89,46 @@ app.get('/api/article/getNameAnd_col',function(req,res){
       db.close();
     });
   });
+}),
+//short
+app.get('/api/article/getNameShort_col',function(req,res){
+  const MongoClient = require('mongodb').MongoClient;
+  const url = 'mongodb://localhost:27017';
+  MongoClient.connect(url, function(err, db) {
+    if (err) throw err;
+    var dbo = db.db(db_mongo);
+    // var id = 7;
+    // var reg = new RegExp(id, 'i')
+    // var query = {address:"Highway 37"};
+    var option = {limit:3,
+                  skip:0,
+                  title:"Highway 37"}
+    dbo.collection("customers").find({},option).toArray(function(err, result) {
+      if (err) throw err;
+      console.log(result);
+      db.close();
+    });
+  });
+}),
+//Groupby
+app.get('/api/article/getNameGroup_col',function(req,res){
+  const MongoClient = require('mongodb').MongoClient;
+  const url = 'mongodb://localhost:27017';
+  MongoClient.connect(url, function(err, db) {
+    if (err) throw err;
+    var dbo = db.db(db_mongo);
+    // var id = 7;
+    // var reg = new RegExp(id, 'i')
+    // var query = {name:reg,address:reg};
+    dbo.collection("customers").aggregate([{ "$sort": { "name": 1, "address": 1 } },
+    { "$group": {
+        "_id": "$name",
+        "value": { "$first": "$address" }
+    }}]).toArray(function(err, result) {
+      if (err) throw err;
+      console.log(result);
+      db.close();
+    });
+  });
 })
 }
